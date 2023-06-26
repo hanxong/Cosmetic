@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 992px;
+  font-family: "Helvetica";
+ 
+}
+
+/* navbar */
+.navbar{
+  height: 60px;
+  padding-left: 20px;
+  padding-right: 30px;
+}
+.navbar #logo {
+  line-height: 60px;
+}
+.navbar #logo img{
+  vertical-align: middle;
+}
+
+.search{
+  width: 150;
+  float: right;
+  margin-bottom: 0;
+  position: relative;
+  bottom: -25px;
+  
+}
+
+.no_dot {
+  list-style-type: none;
+}
+
+.img{
+  width: 900px;
+  height: 900px;
+  background-image: url("C:/Users/USER/Desktop/codeit.2/image/1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.navbar #menu {
+  line-height: 60px;
+  float: right;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+}
+
+
+
+.navbar #menu li {
+  float:left;
+  margin-left: 30px;
+  line-height: 60px;
+}
+
+
+.navbar #menu li a {
+  text-decoration: none;
+  color: #545454 ;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+/* 마이페이지 프로필 */
+.margin-space-top {
+  margin-top:40px;
+}
+
+.margin-space-bottom {
+  margin-bottom:40px;
+}
+
+.margin-space-left {
+  margin-left:20px;
+}
+
+.margin-space-right {
+  margin-right:40px;
+}
+
+.border-black{
+  border: 1px solid black;
+}
+
+.border-gray{
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.border-white{
+  border: 1px solid white;
+}
+
+.box-size1{
+  float: left;
+  width:500px;
+  height: 500px;
+}
+
+.box-size2{
+  display: inline-block;
+  width: 900px;
+  height: 500px;
+  margin-left:50px;
+  padding-left: 20px;
+}
+
+.text-box{
+  display: inline-block;
+  width: 400px;
+  height: 400px;
+  margin-top:50px;
+  margin-bottom:50px;
+  margin-left:50px;
+  margin-right:50px;
+  padding-top:50px;
+  padding-bottom:50px;
+  padding-left:50px;
+  padding-right:50px;
+
+}
+
+.white{
+  color:black;
+  background-color: white;
+  text-align: left;
+}
+
+.gray{
+  color:#545454;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.img-size{
+  width:150px;
+  height: 150px;
+}
+
+.img-margin-size{
+  width: 400px;
+  height: 400px;
+  margin-top:50px;
+  margin-bottom:50px;
+  margin-left:100px;
+  margin-right:100px;
+}
+
+.img-margin-bigsize{
+  width: 700px;
+  height: 700px;
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no_dot {
+  list-style-type: none;
+}
+
+.text-side{
+  display: inline-block;
+  margin-left:50px;
+  padding-left: 20px;
+}
+
+
+/* footer */
+.footer{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 80px;
+
+}
+.footer a{
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+

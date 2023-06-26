@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card-deck">
+    <div class="card" *ngFor="let item of cards">
+      <div class="embed-responsive embed-responsive-4by3">
+        <img src="{{ item.imageUrl }}" class="card-img-top embed-responsive-item" alt="tree">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ cosmetic.id }}</h5>
+        <h5 class="card-subtitle">{{ cosmetic.id }}</h5>
+        <p class="card-text mt-3">{{ cosmetic.id }}</p>
+      </div>
+    </div>
+  </div>
+</div>

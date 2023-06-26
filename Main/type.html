@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>피부 타입 테스트</title>
+  <style>
+    /* CSS 스타일링 */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #question {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    #choices {
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    #result {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #gray{
+  color:#545454;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+    }
+
+
+  </style>
+</head>
+<body>
+  <!DOCTYPE html>
+<html>
+
+<head>
+  <title>피부타입테스트</title>
+  <meta charset="utf-8" />
+  <link href="index.css" rel="stylesheet" />
+  <script src="main.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <div>
+    <a href="/login_main">
+      <img src="image/capstone_img.png" width="100">
+    </a>
+  </div>
+</head>
+
+<body>
+
+
+  <!--검색창-->
+  <div class="search">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+      <button class="btn btn-outline-success" type="submit" >Search</button>
+     
+    </form>
+  </div>
+  <h1>
+    <div class="navbar">
+      <a href="#" id="logo">
+
+
+        <ul id="menu">
+
+          <li><a href="/mypage">_______님</a></li>
+          <li><a href="/Main">로그아웃</a></li>
+          <li><a href="/mypage">마이페이지</a></li>
+          <li></li>
+
+        </ul>
+
+    </div>
+  </h1>
+
+  <div id="gray"> 
+    <p></p>
+    <h3><p>피부타입 테스트</p></h3>
+  </div>
+
+  <h1>피부 타입 테스트</h1>
+  <div id="question">
+    <p id="questionText"></p>
+  </div>
+  <div id="choices">
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+  <div id="result">
+    <p>당신의 피부 타입은 <span id="skinType"></span>입니다.</p>
+  </div>
+
+  <script>
+    // JavaScript 코드
+    var questions = [
+      "평소 블랙헤드 또는 피지가 많나요?",
+      "가습기가 없어도 평소 건조함을 잘 느끼지 못하나요?",
+      "하루라도 머리를 감지 않으면 금세 기름지게 되나요?",
+      "보습이 좋은 제품을 사용하면 피부에 트러블이 발생하나요?",
+      "모공이 크고 육안으로도 잘 보이나요?",
+      "(여성) 메이크업 수정을 자주 하나요?",
+      "유분이 많은 제품보다 산뜻한 제품을 사용할 때 더 만족감이 높나요?",
+      "피부가 갈라지는 경우보다 번들거리는 경우가 많나요?",
+      "건조한 날씨에도 유분이 많나요?",
+      "세안 후 당기는 느낌이 별로 없나요?"
+    ];
+
+    var skinTypes = [
+      {
+        name: "건성",
+        score: 0
+      },
+      {
+        name: "복합성",
+        score: 0
+      },
+      {
+        name: "지성",
+        score: 0
+      }
+    ];
+
+    var currentQuestionIndex = 0;
+
+    var questionTextElement = document.getElementById("questionText");
+    var yesButton = document.getElementById("yes");
+    var noButton = document.getElementById("no");
+    var skinTypeElement = document.getElementById("skinType");
+
+    function displayQuestion() {
+      questionTextElement.textContent = questions[currentQuestionIndex];
+    }
+
+    function updateScore(selectedSkinType) {
+      for (var i = 0; i < skinTypes.length; i++) {
+        if (skinTypes[i].name === selectedSkinType) {
+          skinTypes[i].score += 1;
+          break;
+        }
+      }
+    }
+
+    function displayResult() {
+      var highestScore = -1;
+      var highestScoreSkinType = "";
+
+      for (var i = 0; i < skinTypes.length; i++) {
+        if (skinTypes[i].score > highestScore) {
+          highestScore = skinTypes[i].score;
+          highestScoreSkinType = skinTypes[i].name;
+        }
+      }
+
+      skinTypeElement.textContent = highestScoreSkinType;
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        displayQuestion();
+      } else {
+        // 모든 질문에 대한 답변 완료
+        displayResult();
+        yesButton.disabled = true;
+        noButton.disabled = true;
+      }
+    }
+
+    // Yes 버튼 클릭 이벤트 처리
+    yesButton.addEventListener("click", function() {
+      var selectedSkinType = "";
+      if (currentQuestionIndex < 2) {
+        selectedSkinType = "건성";
+      } else if (currentQuestionIndex < 7) {
+        selectedSkinType = "복합성";
+      } else {
+        selectedSkinType = "지성";
+      }
+      updateScore(selectedSkinType);
+      nextQuestion();
+    });
+
+    // No 버튼 클릭 이벤트 처리
+    noButton.addEventListener("click", nextQuestion);
+
+    // 초기 질문 표시
+    displayQuestion();
+
+    
+  </script>
+
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 CAPSTONE CRS
+    <a class="text-dark" ></a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<script src = "search.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+</body>
+</html>
